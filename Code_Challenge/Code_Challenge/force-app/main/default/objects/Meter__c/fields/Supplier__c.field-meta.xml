@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<CustomField xmlns="http://soap.sforce.com/2006/04/metadata">
+    <fullName>Supplier__c</fullName>
+    <deleteConstraint>SetNull</deleteConstraint>
+    <description>Contains which supplier is resposable for the meter reader</description>
+    <externalId>false</externalId>
+    <inlineHelpText>Contains which supplier is resposable for the meter reader</inlineHelpText>
+    <label>Supplier</label>
+    <referenceTo>Supplier__c</referenceTo>
+    <relationshipLabel>Meters</relationshipLabel>
+    <relationshipName>Meters</relationshipName>
+    <required>false</required>
+    <trackHistory>false</trackHistory>
+    <trackTrending>false</trackTrending>
+    <type>Lookup</type>
+</CustomField>
