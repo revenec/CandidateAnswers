@@ -47,8 +47,8 @@ public with sharing class SalesforceQuestionerAnswers {
          In a relational database, why is redundant data (i.e. the same data stored in multiple tables) generally a bad thing?*/
          
          //ANSWER:
-         //Having redundant data in a database makes difficult to keep the records updated
-         //In Salesforce also, redundant data is a waste of money as you pay for how much storage you consume in the org
+         Having redundant data in a database makes difficult to keep the records updated
+         In Salesforce also, redundant data is a waste of money as you pay for how much storage you consume in the org
 
     }
 
@@ -57,7 +57,7 @@ public with sharing class SalesforceQuestionerAnswers {
         /*Question 3
         In a relational database, why might redundant data be necessary in real world applications?*/
         //ANSWER:
-        //The only reason I can think of is to have data backups 
+        The only reason I can think of is to have data backups 
     }
     private void question4()
     {
@@ -67,9 +67,9 @@ public with sharing class SalesforceQuestionerAnswers {
         those of another. What system would you suggest to help manage this, and why would you choose your solution in particular?*/
 
         //ANSWER
-        //If we are considering to modify an existing record in salesforce, I would stop users updating or deleting the record if anyone else is working with this record. Once the user
-        //who is working with this records finishes and save the changes, another user could update the record. I prefer this option to ensure that any user can modify a record which
-        //is currently used as this action could contaminate the existing data 
+        If we are considering to modify an existing record in salesforce, I would stop users updating or deleting the record if anyone else is working with this record. Once the user
+        who is working with this records finishes and save the changes, another user could update the record. I prefer this option to ensure that any user can modify a record which
+        is currently used as this action could contaminate the existing data 
     }
     private void question5()
     {
@@ -102,14 +102,14 @@ public with sharing class SalesforceQuestionerAnswers {
         What is the difference between Trigger.old and Trigger.new? Under which types of trigger are they each available?*/
 
         //ANSWER:
-        //The difference betwen Trigger.old and Trigger.new is that Trigger.old contains the records before been updated with the new values and the Trigger.new contains
-        //the records after been inserted or updated
+        The difference betwen Trigger.old and Trigger.new is that Trigger.old contains the records before been updated with the new values and the Trigger.new contains
+        the records after been inserted or updated
 
-        //We can find Trigger.old when:
-        //Before update a record, after update a record, before delete a record and after delete a record
+        We can find Trigger.old when:
+        Before update a record, after update a record, before delete a record and after delete a record
 
-        //We can find Trigger.new when:
-        //Before create a record, after create a record, before update a record and after update a record
+        We can find Trigger.new when:
+        Before create a record, after create a record, before update a record and after update a record
     }
     private void question7()
     {
@@ -138,14 +138,14 @@ public with sharing class SalesforceQuestionerAnswers {
           THEN I should receive an error AND the request should not be submitted*/
 
         //ANSWER:
-        //Case scenario 2
-        //Given I am completing an insurance request
-        //When I specify a cover amount of $100,000 AND I choose to submit my request
-        //THEN I should not receive and error AND the request should be submitted
+        Case scenario 2
+        Given I am completing an insurance request
+        When I specify a cover amount of $100,000 AND I choose to submit my request
+        THEN I should not receive and error AND the request should be submitted
 
-        //Case scenario 3
-        //Given I am completing an insurance request
-        //When I specify a cover amount of more than $100,000 AND I choose to submit my request
-        //THEN I should not receive and error AND the request should be submitted
+        Case scenario 3
+        Given I am completing an insurance request
+        When I specify a cover amount of more than $100,000 AND I choose to submit my request
+        THEN I should not receive and error AND the request should be submitted
     }
 }
