@@ -1,4 +1,6 @@
 
 //TEST LIGHTNING WEB COMPONENT
-//After importing the project and to create some data in the org to see how it is display, run the routine below to create data
+//After importing the project and to see the presentation of the data, you need to create a lightning web component and add the component called meterReader. 
+This compoment will show no data so to create some data, you need to run the code below in the Developer Console -> Debug -> Execute Anonymous Window and copy and paste 
+the code below, after that click in execute
 HelperMeterReader.getMeterReader('', true, HelperMeterReaderTest.jsonTest);
