@@ -1,0 +1,4 @@
+
+//TEST LIGHTNING WEB COMPONENT
+//After importing the project and to create some data in the org to see how it is display, run the routine below to create data
+HelperMeterReader.getMeterReader('', true, HelperMeterReaderTest.jsonTest);
