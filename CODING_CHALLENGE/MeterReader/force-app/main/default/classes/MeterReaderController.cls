@@ -6,6 +6,8 @@ public with sharing class MeterReaderController
     {
         //Return meter readers in the system sorted by create date.       
         return [SELECT Id, Name, CustomerNameLgt__c,MeterNameLgt__c, SupplierNameLgt__c, Total_Consumed__c, Submited_DateTime__c   
-                FROM Meter_Reader__c ];
+                FROM Meter_Reader__c 
+                ORDER BY Submited_DateTime__c DESC
+                LIMIT 10000];
     }
 }
