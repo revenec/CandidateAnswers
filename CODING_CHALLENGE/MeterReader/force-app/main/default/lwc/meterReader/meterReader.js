@@ -16,7 +16,6 @@ const COLUMNS = [
 
 export default class MeterReader extends LightningElement 
 {
-    strUrl = 'http//:www.testweb.com/meter-read';
     columns = COLUMNS;
     @wire(getRecords) meterReaders;  
 }
