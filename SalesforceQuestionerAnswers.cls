@@ -69,7 +69,12 @@ public with sharing class SalesforceQuestionerAnswers {
         //ANSWER
         If we are considering to modify an existing record in salesforce, I would stop users updating or deleting the record if anyone else is working with this record. Once the user
         who is working with this records finishes and save the changes, another user could update the record. I prefer this option to ensure that any user can modify a record which
-        is currently used as this action could contaminate the existing data 
+        is currently used as this action could contaminate the existing data.
+        
+        On another hand, if we are speaking about version control, in my opinion there are two tools that any team should have working in the same Salesforce instance:
+        - One is a platform for version control. I would suggest github because of the web interface and how easy it is to implement in one IDE.
+        - Another one would be clear communication and coordination in the team about who is going to push changes, in this case we ensure that all the team will be modifying the existing version.
+
     }
     private void question5()
     {
@@ -123,7 +128,7 @@ public with sharing class SalesforceQuestionerAnswers {
         Visiting__c*/
         
         //ANSWER:
-        [SELECT Id, Name, Visit_Time__c, Visiting__c FROM Visitors__c WHERE Company__c = 'Bluetel'];
+        List<Visitors> lstVisitors = [SELECT Id, Name, Visit_Time__c, Visiting__c FROM Visitors__c WHERE Company__c = 'Bluetel'];
     }
     private void question8()
     {
