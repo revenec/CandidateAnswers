@@ -18,52 +18,58 @@ public class HelperMeterReader
         Boolean blnIsValidRecord;
 
         //This process is created to test all the routine as there is not url to retrieve the data.
-        if(dummyJSON == null)
+        try 
         {
-            blnIsValidRecord = validateInfo(strUrl,null,true);
-        }
-        else 
-        {
-            blnIsValidRecord = true;
-            strJson = dummyJSON;
-        }
-        
-        //if the url is correct we process to get the data.
-        if(blnIsValidRecord == true)
-        {
-            if(String.isBlank(strJson))strJson = getInformation(strUrl);
-            
-            List<MeterReader> lstMeters = validateJSONAndGenerateRecords(strJson);
-            //if the routine retrieve data from get callout, the process deserialize the data to be processed.
-            if(!lstMeters.isEmpty())
+            if(dummyJSON == null)
             {
-                strProcessState = storeRecords(lstMeters);
-                if('OK'.equals(strProcessState))
+                blnIsValidRecord = validateInfo(strUrl,null,true);
+            }
+            else 
+            {
+                blnIsValidRecord = true;
+                strJson = dummyJSON;
+            }
+            
+            //if the url is correct we process to get the data.
+            if(blnIsValidRecord == true)
+            {
+                if(String.isBlank(strJson))strJson = getInformation(strUrl);
+                
+                List<MeterReader> lstMeters = validateJSONAndGenerateRecords(strJson);
+                //if the routine retrieve data from get callout, the process deserialize the data to be processed.
+                if(!lstMeters.isEmpty())
                 {
-                    if(!Test.isRunningTest())
+                    strProcessState = storeRecords(lstMeters);
+                    if('OK'.equals(strProcessState))
                     {
-                        strProcessState = generatePresent(lstMeters,strUrl,blnInsertMeterReader);
+                        if(!Test.isRunningTest())
+                        {
+                            strProcessState = generatePresent(lstMeters,strUrl,blnInsertMeterReader);
+                        }
+                        else
+                        {
+                            strProcessState = 'POSTED';    
+                        }
                     }
-                    else
+                    else 
                     {
-                        strProcessState = 'POSTED';    
+                        System.debug(loggingLevel.INFO,'Something failed in the creation of the records') ;
                     }
                 }
                 else 
                 {
-                      System.debug(loggingLevel.INFO,'Something failed in the creation of the records') ;
+                    strProcessState = 'MALFORMAT_JSON';
                 }
             }
             else 
             {
-                strProcessState = 'MALFORMAT_JSON';
+                strProcessState = 'INVALID_URL';   
             }
-        }
-        else 
+        } 
+        catch (Exception e) 
         {
-            strProcessState = 'INVALID_URL';   
+            strProcessState = 'UNEXPECTED_ERROR';
         }
-
         return strProcessState;
     }
 
