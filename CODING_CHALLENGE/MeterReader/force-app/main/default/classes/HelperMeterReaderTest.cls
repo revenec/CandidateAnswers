@@ -9,6 +9,13 @@ public class HelperMeterReaderTest {
         Test.setMock(HttpCalloutMock.class, new MeterReaderHttpCalloutMock());
         System.AssertEquals('POSTED',HelperMeterReader.getMeterReader('https://testscenario/meter-read',false,null));
     }
+    //Test when the url is null
+    @isTest
+    static void testGetDataNullURL() 
+    {
+        Test.setMock(HttpCalloutMock.class, new MeterReaderHttpCalloutMock());
+        System.AssertEquals('UNEXPECTED_ERROR',HelperMeterReader.getMeterReader(null,false,null));
+    }
     //This method will test the get data process using a ApexMockCallout, this method also test the url is valid and test for more than one meter reading.
     @isTest
     static void testGetDataMultiMeterReading() 
